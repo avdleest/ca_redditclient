@@ -1,5 +1,5 @@
-import React from 'react';
-import Post from '../Post/post'
+import React from 'react'
+import Post from '../Post/Post'
 import './PostList.css'
 
 const example = [
@@ -10,15 +10,13 @@ const example = [
   {
     title: 'def',
     text: 'def',
-  }
+  },
 ]
 
-const postList = () => {
+export default function PostList() {
   return (
-  <div className='postList'>
-    {example.map(data => <Post title={data.title} text={data.text} />)}
-  </div>
-  );
-};
-
-export default postList;
+    <div className="postList">
+      {example.map((data) => <Post title={data.title} text={data.text} />)}
+    </div>
+  )
+}

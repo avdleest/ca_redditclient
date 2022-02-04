@@ -1,13 +1,11 @@
-import React from 'react';
+import React from 'react'
 import './Community.css'
 
-const community = ({logo, name}) => {
+export default function Community({ logo, name }) { // eslint-disable-line react/prop-types
   return (
-  <div className='community'>
-    <p>{logo}</p>
-    <p>{name}</p>
-  </div>
-  );
-};
-
-export default community;
+    <div className="community">
+      <p>{logo}</p>
+      <p>{name}</p>
+    </div>
+  )
+}
