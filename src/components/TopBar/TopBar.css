@@ -1,0 +1,19 @@
+.topBar {
+    height: 77px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container {
+    margin-right: 95%;
+}
+
+.search {
+    position: absolute;
+}
