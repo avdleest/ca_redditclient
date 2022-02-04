@@ -1,13 +1,11 @@
-import React from 'react';
+import React from 'react'
 import './Post.css'
 
-const post = ({title, text}) => {
+export default function Post({ title, text }) { // eslint-disable-line react/prop-types
   return (
-  <div className='post'>
-    <h1>{title}</h1>
-    <p>{text}</p>
-  </div>
-  );
-};
-
-export default post;
+    <div className="post">
+      <h1>{title}</h1>
+      <p>{text}</p>
+    </div>
+  )
+}
