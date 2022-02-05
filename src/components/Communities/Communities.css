@@ -10,6 +10,7 @@
     box-sizing: border-box;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    position: absolute;
 }
 
 .communities .title {
@@ -28,4 +29,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }

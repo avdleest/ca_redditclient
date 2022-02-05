@@ -1,0 +1,46 @@
+.searchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBar input{
+    border: none;
+    font-size: 16px;
+    padding: 4px;
+    outline: none;
+    margin-right: 0.5px;
+}
+
+.searchBar input:focus {
+    outline: 0.5px solid gray;
+}
+
+.search-icon {
+    height: 34px;
+    width: 34px;
+}
+
+.search-icon button {
+    border: none;
+    height: 100%;
+    width: 100%;
+    background: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+}
+
+.search-icon button:hover {
+    background: gray;
+}
+
+.search-icon button:active {
+    background: darkgray;
+    border: none;
+}
+.search-icon img{
+    width: 70%;
+}

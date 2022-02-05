@@ -10,4 +10,8 @@
     margin-top: 50px;
     height: auto;
     display: flex;
+    flex: 1;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0;
 }
