@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchBar from '../SearchBar/searchBar'
+import SearchBar from '../SearchBar/SearchBar'
 import './TopBar.css'
 
 export default function TopBar() {

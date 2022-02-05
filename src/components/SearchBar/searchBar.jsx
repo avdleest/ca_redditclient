@@ -1,12 +1,10 @@
-import React from 'react';
+import React from 'react'
 import './SearchBar.css'
 
-const searchBar = () => {
-  return (
-  <div className='searchBar'>
+const searchBar = () => (
+  <div className="searchBar">
     <h1>Search</h1>
   </div>
-  );
-};
+)
 
-export default searchBar;
+export default searchBar
