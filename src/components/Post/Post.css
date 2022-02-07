@@ -1,5 +1,5 @@
 .post {
-    width: 50%;
+    width: 90%;
     height: auto;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.11);
@@ -16,10 +16,12 @@
 
 .post h3{
     font-size: 26px;
+    margin: 0;
 }
 
 .post p{
     font-size: 18px;
+    margin-top: 5px;
 }
 
 .post .img-container{
@@ -30,4 +32,57 @@
 .post .img-container img{
     width: 100%;
 }
+
+.post-footer {
+    display: flex;
+    border-top: 3px dashed gray;
+    height: 40px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.post-footer p{
+    width: 30%;
+    font-size: 14px;
+    margin: 16px;
+}
+
+.post-footer .comment-btn-container{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-footer .comment-btn-container button{
+    height: 100%;
+    width: 25%;
+    outline: none;
+    border: none;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.post-footer .comment-btn-container button:hover{
+    background: lightgray;
+}
+
+.post-footer .comment-btn-container button:active{
+    background: gray;
+}
+
+.post-footer .comment-btn-container button img{
+    height: 100%;
+    width: 100%;
+}
+
+.post-footer .comment-btn-container p{
+    margin-left: 0px;
+}
+
 
