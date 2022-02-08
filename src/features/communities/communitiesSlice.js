@@ -17,7 +17,7 @@ const initialState = {
   isLoading: false,
 }
 
-// TODO: Determine whether
+// TODO: Determine whether fetching communities is actually required in a later stage
 
 const communitiesSlice = createSlice({
   name: 'communities',
