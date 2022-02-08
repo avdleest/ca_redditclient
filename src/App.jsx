@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
-import axios from 'axios'
 import TopBar from './components/TopBar/TopBar'
 import PostList from './components/PostList/PostList'
 import Communities from './components/Communities/Communities'
+import { fetchPosts, selectPosts } from './features/posts/postsSlice'
 
 export default function App() {
-  const [posts, setPosts] = useState([])
-
-  const temp = []
+  const dispatch = useDispatch()
+  const posts = useSelector(selectPosts)
 
   useEffect(() => {
-    axios.get('https://www.reddit.com/r/popular.json').then((res) => {
-      res.data.data.children.map((child) => temp.push(child.data))
-      setPosts(temp)
-    })
-  }, [])
+    dispatch(fetchPosts('r/popular'))
+  }, [dispatch])
 
   return (
     <div className="App">

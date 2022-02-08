@@ -16,7 +16,6 @@ export default function Post({ title, text, pic, user, date, num_comments, comme
   const [showComments, setShowComments] = useState(false)
 
   const [commentsArray, setCommentsArray] = useState([])
-
   const comments_url = comments.slice(0, comments.length - 1)
 
   const json = '.json'

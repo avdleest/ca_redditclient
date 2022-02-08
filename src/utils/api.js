@@ -1,4 +1,6 @@
-export const fetchPostsAPI = async () => {
-  console.log('posts fetched')
-  return {}
+import axios from 'axios'
+
+export const fetchPostsAPI = async (community) => {
+  const response = await axios.get(`https://www.reddit.com/${community}.json`)
+  return response
 }
