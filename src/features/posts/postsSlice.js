@@ -54,6 +54,8 @@ const postsSlice = createSlice({
 export const selectPosts = (state) => state.posts.posts
 export const selectCommunity = (state) => state.posts.selectedCommunity
 export const selectSearchTerm = (state) => state.posts.searchTerm
+export const isLoadingPosts = (state) => state.posts.isLoading
+export const hasErrorPosts = (state) => state.posts.error
 export const {
   setPosts,
   setSearchTerm,
