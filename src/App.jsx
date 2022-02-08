@@ -8,12 +8,9 @@ import Communities from './components/Communities/Communities'
 export default function App() {
   const [posts, setPosts] = useState([])
 
-  const temp = []
-
   useEffect(() => {
     axios.get('https://www.reddit.com/r/popular.json').then((res) => {
-      res.data.data.children.map((child) => temp.push(child.data))
-      setPosts(temp)
+      setPosts(res.data.data.children.map((child) => child.data))
     })
   }, [])
 
@@ -22,7 +19,7 @@ export default function App() {
       <TopBar />
       <div className="container">
         <PostList posts={posts} />
-        <Communities />
+        <Communities communities={posts} />
       </div>
     </div>
   )

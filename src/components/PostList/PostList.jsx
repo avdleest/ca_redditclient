@@ -15,7 +15,7 @@ export default function PostList({ posts }) {
           user={data.author}
           date={new Date(data.created)}
           num_comments={data.num_comments}
-          comments={data.url}
+          comments={data.permalink}
         />
       ))}
     </div>

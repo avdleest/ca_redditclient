@@ -1,0 +1,24 @@
+.comment{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.11);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.comment h5{
+    border-bottom: 1px dashed gray;
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+.comment p{
+    margin: 0;
+}

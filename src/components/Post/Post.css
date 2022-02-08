@@ -33,6 +33,23 @@
     width: 100%;
 }
 
+.post .link-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.post .link-container a{
+    color: lightgrey;
+    text-decoration: none;
+}
+
+.post .link-container a:hover{
+    color: gray;
+}
+
 .post-footer {
     display: flex;
     border-top: 3px dashed gray;
