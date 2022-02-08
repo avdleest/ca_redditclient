@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable array-callback-return */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable block-spacing */
@@ -8,6 +9,7 @@
 /* eslint-disable react/prop-types */
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
+import Comments from '../Comments/Comments'
 import './Post.css'
 
 export default function Post({ title, text, pic, user, date, num_comments, comments }) { // eslint-disable-line react/prop-types
@@ -20,16 +22,14 @@ export default function Post({ title, text, pic, user, date, num_comments, comme
 
   const json = '.json'
 
-  const endpoint = comments_url + json
+  const reddit = 'https://www.reddit.com/'
 
-  const temp = []
+  const endpoint = reddit + comments_url + json
 
   useEffect(() => {
     if (showComments) {
       axios.get(endpoint).then((res) => {
-        res.data[1].data.children.map((child) => {temp.push(child.data)})
-        setCommentsArray(temp)
-        console.log(commentsArray)
+        setCommentsArray(res.data[1].data.children.map((child) => child.data))
       })
     }
   }, [showComments])
@@ -37,7 +37,16 @@ export default function Post({ title, text, pic, user, date, num_comments, comme
   return (
     <div className="post">
       <h3>{title}</h3>
-      {(pic && pic.slice(pic.length - 3, pic.length) === 'jpg' ? <div className="img-container"><p><img src={pic} alt="" /></p></div> : null)}
+      {(pic && pic.slice(pic.length - 3, pic.length) === 'jpg'
+        ? (
+          <div className="img-container">
+            <p><img src={pic} alt="" /></p>
+          </div>
+        ) : (
+          <div className="link-container">
+            {pic ? <a href={pic}>click to view content</a> : null}
+          </div>
+        ))}
       <p>{text}</p>
       <div className="post-footer">
         <p>Added by: {user}</p>
@@ -49,6 +58,7 @@ export default function Post({ title, text, pic, user, date, num_comments, comme
           <p>{num_comments}</p>
         </div>
       </div>
+      {showComments ? <Comments commentsdata={commentsArray} /> : null}
     </div>
   )
 }

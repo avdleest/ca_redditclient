@@ -21,7 +21,7 @@ export default function App() {
       <TopBar />
       <div className="container">
         <PostList posts={posts} />
-        <Communities />
+        <Communities communities={posts} />
       </div>
     </div>
   )

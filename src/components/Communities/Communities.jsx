@@ -1,19 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import Community from '../Community/Community'
 import './Communities.css'
 
-const example = [
-  {
-    logo: 'logo1',
-    name: 'name1',
-  },
-  {
-    logo: 'logo2',
-    name: 'name2',
-  },
-]
-
-export default function Communities() {
+export default function Communities({ communities }) {
   return (
     <div className="communities-container">
       <div className="communities">
@@ -21,7 +11,7 @@ export default function Communities() {
           <h1>Related Communities</h1>
         </div>
         <div className="community-container">
-          {example.map((data) => <Community logo={data.logo} name={data.name} />)}
+          {communities.map((data) => <Community subreddit={data.subreddit} />)}
         </div>
       </div>
     </div>
