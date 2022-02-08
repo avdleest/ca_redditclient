@@ -40,7 +40,6 @@ const postsSlice = createSlice({
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
         action.payload.map((post) => state.posts.push(post.data))
-        // state.posts.map(action.payload.data)
         state.isLoading = false
         state.error = false
       })
@@ -53,6 +52,7 @@ const postsSlice = createSlice({
 })
 
 export const selectPosts = (state) => state.posts.posts
+export const selectCommunity = (state) => state.posts.selectedCommunity
 export const selectSearchTerm = (state) => state.posts.searchTerm
 export const {
   setPosts,
