@@ -10,9 +10,9 @@ export const fetchCommunitiesAPI = async () => {
   return undefined
 }
 
-export const fetchCommentsAPI = async (id) => { // eslint-disable-line no-unused-vars
-  console.log('fetchComments API called')
-  return undefined
+export const fetchCommentsAPI = async (endpoint) => { // eslint-disable-line no-unused-vars
+  const response = await axios.get(endpoint)
+  return response
 }
 
 export const getCommentsEndpoint = (comments) => {

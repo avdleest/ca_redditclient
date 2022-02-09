@@ -39,7 +39,7 @@ const postsSlice = createSlice({
         state.error = false
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
-        action.payload.map((post) => state.posts.push(post.data))
+        state.posts = action.payload.map((post) => post.data)
         state.isLoading = false
         state.error = false
       })

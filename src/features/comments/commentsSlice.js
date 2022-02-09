@@ -3,14 +3,15 @@ import { fetchCommentsAPI } from '../../utils/api'
 
 export const fetchComments = createAsyncThunk(
   'posts/fetchComments',
-  async () => {
-    const response = await fetchCommentsAPI()
-    return response.data.data.children
+  async (endpoint) => {
+    const response = await fetchCommentsAPI(endpoint)
+    return response.data[1].data.children
   },
 )
 
 const initialState = {
   comments: [],
+  showComments: false,
   error: false,
   isLoading: false,
 }
@@ -22,6 +23,9 @@ const commentsSlice = createSlice({
     setComments: (state, action) => {
       state.comments = action.payload
     },
+    setShowComments: (state, action) => {
+      state.showComments = action.payload
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -30,7 +34,7 @@ const commentsSlice = createSlice({
         state.error = false
       })
       .addCase(fetchComments.fulfilled, (state, action) => {
-        action.payload.map((comment) => state.comments.push(comment.data))
+        state.comments = action.payload.map((comment) => comment.data)
         state.isLoading = false
         state.error = false
       })
@@ -44,5 +48,6 @@ const commentsSlice = createSlice({
 export const selectComments = (state) => state.comments.comments
 export const isLoadingComments = (state) => state.comments.isLoading
 export const hasErrorComments = (state) => state.comments.error
-export const { setComments } = commentsSlice.actions
+export const selectShowComments = (state) => state.comments.showComments
+export const { setComments, setShowComments } = commentsSlice.actions
 export default commentsSlice.reducer
