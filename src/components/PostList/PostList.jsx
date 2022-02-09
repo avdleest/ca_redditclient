@@ -4,6 +4,8 @@ import React from 'react'
 import Post from '../Post/Post'
 import './PostList.css'
 
+// TODO: add key property
+
 export default function PostList({ posts }) {
   return (
     <div className="postList">

@@ -3,11 +3,9 @@ import { fetchPostsAPI } from '../../utils/api'
 
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
-  async () => {
-    // TODO: actually fetch the posts below
-    const response = await fetchPostsAPI()
-    const responseJSON = await response.json()
-    return responseJSON
+  async (community) => {
+    const response = await fetchPostsAPI(community)
+    return response.data.data.children
   },
 )
 
@@ -34,26 +32,30 @@ const postsSlice = createSlice({
       state.searchTerm = ''
     },
   },
-  extraReducers: {
-    [fetchPosts.pending]: (state) => {
-      state.isLoading = true
-      state.error = false
-    },
-    [fetchPosts.fulfilled]: (state, action) => {
-      state.posts.push(action.payload)
-      state.isLoading = false
-      state.error = false
-    },
-    [fetchPosts.rejected]: (state) => {
-      state.isLoading = false
-      state.error = true
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchPosts.pending, (state) => {
+        state.isLoading = true
+        state.error = false
+      })
+      .addCase(fetchPosts.fulfilled, (state, action) => {
+        action.payload.map((post) => state.posts.push(post.data))
+        state.isLoading = false
+        state.error = false
+      })
+      .addCase(fetchPosts.rejected, (state) => {
+        state.isLoading = false
+        state.error = true
+      })
   },
 
 })
 
-export const selectPosts = (state) => state.posts
+export const selectPosts = (state) => state.posts.posts
+export const selectCommunity = (state) => state.posts.selectedCommunity
 export const selectSearchTerm = (state) => state.posts.searchTerm
+export const isLoadingPosts = (state) => state.posts.isLoading
+export const hasErrorPosts = (state) => state.posts.error
 export const {
   setPosts,
   setSearchTerm,
