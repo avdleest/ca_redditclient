@@ -7,25 +7,16 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/prop-types */
-import axios from 'axios'
-import React, { useState, useEffect } from 'react'
-import Comments from '../Comments/Comments'
+import React from 'react'
+import { useDispatch } from 'react-redux'
 import { getCommentsEndpoint } from '../../utils/api'
 import './Post.css'
+import { fetchComments, setShowComments } from '../../features/comments/commentsSlice'
 
 export default function Post({ title, text, pic, user, date, num_comments, comments }) { // eslint-disable-line react/prop-types
   const timeNow = new Date(Date.now()).getHours()
-  const [showComments, setShowComments] = useState(false)
-  const [commentsArray, setCommentsArray] = useState([])
+  const dispatch = useDispatch()
   const commentsEndpoint = getCommentsEndpoint(comments)
-
-  useEffect(() => {
-    if (showComments) {
-      axios.get(commentsEndpoint).then((res) => {
-        setCommentsArray(res.data[1].data.children.map((child) => child.data))
-      })
-    }
-  }, [showComments])
 
   return (
     <div className="post">
@@ -45,13 +36,18 @@ export default function Post({ title, text, pic, user, date, num_comments, comme
         <p>Added by: {user}</p>
         <p>{timeNow - date.getHours()} hours ago</p>
         <div className="comment-btn-container">
-          <button type="button" onClick={() => { setShowComments(!showComments) }}>
+          <button
+            type="button"
+            onClick={() => {
+              dispatch(fetchComments(commentsEndpoint))
+              dispatch(setShowComments(true))
+            }}
+          >
             <img src="assets/comment.png" alt="" />
           </button>
           <p>{num_comments}</p>
         </div>
       </div>
-      {showComments ? <Comments commentsdata={commentsArray} /> : null}
     </div>
   )
 }
