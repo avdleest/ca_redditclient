@@ -1,19 +1,19 @@
-import React, { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import "./App.css"
-import TopBar from "./components/TopBar/TopBar"
-import PostList from "./components/PostList/PostList"
-import Communities from "./components/Communities/Communities"
-import Comments from "./components/Comments/Comments"
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import './App.css'
+import TopBar from './components/TopBar/TopBar'
+import PostList from './components/PostList/PostList'
+import Communities from './components/Communities/Communities'
+import Comments from './components/Comments/Comments'
 import {
   fetchPosts,
   selectPosts,
   selectCommunity,
   isLoadingPosts,
   hasErrorPosts,
-} from "./features/posts/postsSlice"
-import { selectShowComments } from "./features/comments/commentsSlice"
-import Loading from "./components/Loading/Loading"
+} from './features/posts/postsSlice'
+import { selectShowComments } from './features/comments/commentsSlice'
+import Loading from './components/Loading/Loading'
 
 export default function App() {
   const dispatch = useDispatch()
