@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-
 import { useDispatch } from 'react-redux'
 import { fetchPosts } from '../../features/posts/postsSlice'
 import './Community.css'

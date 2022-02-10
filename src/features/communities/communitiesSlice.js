@@ -12,7 +12,12 @@ export const fetchCommunities = createAsyncThunk(
 )
 
 const initialState = {
-  communities: [],
+  communities: ['MadeMeSmile',
+    'Damnthatsinteresting',
+    'AnimalsBeingBros',
+    'NoStupidQuestions',
+    'oddlysatisfying',
+  ],
   error: false,
   isLoading: false,
 }

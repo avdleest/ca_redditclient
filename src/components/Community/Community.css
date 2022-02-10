@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
-    border-bottom: solid gray;
+    border-bottom: solid 1px gray;
 }
 
 .community button{
@@ -33,7 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 50%;
     border: 0.5px solid gray;
     margin: 0;
 }

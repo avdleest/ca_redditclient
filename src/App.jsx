@@ -8,7 +8,6 @@ import Comments from './components/Comments/Comments'
 import {
   fetchPosts, selectPosts, selectCommunity, isLoadingPosts, hasErrorPosts,
 } from './features/posts/postsSlice'
-import { setCommunities } from './features/communities/communitiesSlice'
 import { selectShowComments } from './features/comments/commentsSlice'
 import Loading from './components/Loading/Loading'
 
@@ -24,12 +23,6 @@ export default function App() {
     dispatch(fetchPosts(community))
   }, [])
 
-  useEffect(() => {
-    const communities = posts.map((post) => post.subreddit)
-    dispatch(setCommunities(communities))
-  }, [posts])
-
-  // TODO: implement isLoading as spinner in posts and hasError as a span with error message
   if (hasError) {
     return <span>Error 404</span>
   }
