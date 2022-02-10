@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './SearchBar.css'
-import { fetchSearchResults } from '../../features/posts/postsSlice'
+import { fetchSearchResults, setSearchTerm } from '../../features/posts/postsSlice'
 
 export default function SearchBar() {
   const dispatch = useDispatch()
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTermLocal, setSearchTermLocal] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(fetchSearchResults(searchTerm))
+    if (!searchTermLocal) return
+    dispatch(setSearchTerm(searchTermLocal))
+    dispatch(fetchSearchResults(searchTermLocal))
+    setSearchTermLocal('')
   }
 
   return (
@@ -17,8 +20,8 @@ export default function SearchBar() {
       <input
         type="text"
         placeholder="Search"
-        value={searchTerm}
-        onChange={(e) => { setSearchTerm(e.target.value) }}
+        value={searchTermLocal}
+        onChange={(e) => { setSearchTermLocal(e.target.value) }}
         aria-label="Search posts"
       />
       <div className="search-icon" role="search">

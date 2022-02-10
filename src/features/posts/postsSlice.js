@@ -43,15 +43,18 @@ const postsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchPosts.pending, (state) => {
+        state.searchTerm = ''
         state.isLoading = true
         state.error = false
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
+        state.searchTerm = ''
         state.posts = action.payload.map((post) => post.data)
         state.isLoading = false
         state.error = false
       })
       .addCase(fetchPosts.rejected, (state) => {
+        state.searchTerm = ''
         state.isLoading = false
         state.error = true
       })
