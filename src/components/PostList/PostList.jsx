@@ -7,6 +7,7 @@ import './PostList.css'
 
 export default function PostList({ posts }) {
   const searchTerm = useSelector(selectSearchTerm)
+  console.log(posts)
   return (
     <div className="postList">
       {searchTerm && (

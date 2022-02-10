@@ -1,55 +1,52 @@
 .community {
-    width: 80%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-    border-bottom: solid 1px gray;
+  width: 80%;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0 5px 0;
+  border-bottom: solid 1px rgb(212, 212, 212);
 }
 
-.community button{
-    height: 90%;
-    width: 100%;
-    border: none;
-    outline: none;
-    display: flex;
-    align-items: center;
-    background: white;
-    cursor: pointer;
+.community button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  background: white;
+  cursor: pointer;
+  border-radius: 15px;
 }
 
-.community button:hover{
-    background: lightgray;
+.community button:hover {
+  transition: 0.25s ease-in-out;
+  transform: scale(1.03);
+  box-shadow: 5px 5px 20px 4px rgba(158, 158, 158, 0.2);
 }
 
-.community button:active{
-    background: gray;
+.community .logo-container {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
-.community .logo-container{
-    width: 30%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 0.5px solid gray;
-    margin: 0;
+.community .logo-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
-.community .logo-container img{
-    width: 80%;
-    height: 80%;
+.community .name-container {
+  width: 60%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 16px;
+  font-size: 14px;
 }
-
-.community .name-container{
-    width: 60%;
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 16px;
-    font-size: 14px;
-}
-
