@@ -9,9 +9,8 @@ import {
   fetchPosts, selectPosts, selectCommunity, isLoadingPosts, hasErrorPosts,
 } from './features/posts/postsSlice'
 import { setCommunities } from './features/communities/communitiesSlice'
-import {
-  selectShowComments, selectComments, setShowComments, isLoadingComments,
-} from './features/comments/commentsSlice'
+import { selectShowComments } from './features/comments/commentsSlice'
+import Loading from './components/Loading/Loading'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -20,8 +19,6 @@ export default function App() {
   const isLoading = useSelector(isLoadingPosts)
   const showComments = useSelector(selectShowComments)
   const hasError = useSelector(hasErrorPosts) // eslint-disable-line 
-  const commentsArray = useSelector(selectComments)
-  const isLoadingC = useSelector(isLoadingComments)
 
   useEffect(() => {
     dispatch(fetchPosts(community))
@@ -33,23 +30,26 @@ export default function App() {
   }, [posts])
 
   // TODO: implement isLoading as spinner in posts and hasError as a span with error message
+  if (hasError) {
+    return <span>Error 404</span>
+  }
 
   return (
     <div className="App">
       <TopBar />
       {showComments
         ? (
-          <Comments
-            commentsdata={commentsArray}
-            showComments={showComments}
-            isLoadingC={isLoadingC}
-            onClose={() => dispatch(setShowComments(false))}
-          />
+          <Comments />
         )
         : (
           <div className="container">
-            {isLoading ? <span>Loading...</span> : <PostList posts={posts} />}
-            <Communities />
+            {isLoading ? <Loading />
+              : (
+                <>
+                  <PostList posts={posts} />
+                  <Communities />
+                </>
+              )}
           </div>
         )}
     </div>
