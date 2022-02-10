@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import React from "react"
-import { useDispatch } from "react-redux"
-import { getCommentsEndpoint } from "../../utils/api"
-import "./Post.css"
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { getCommentsEndpoint } from '../../utils/api'
+import './Post.css'
 import {
   fetchComments,
   setShowComments,
-} from "../../features/comments/commentsSlice"
+} from '../../features/comments/commentsSlice'
 
 export default function Post({
   title,
@@ -24,7 +24,7 @@ export default function Post({
   return (
     <div className="post">
       <h3>{title}</h3>
-      {pic && pic.slice(pic.length - 3, pic.length) === "jpg" ? (
+      {pic && pic.slice(pic.length - 3, pic.length) === 'jpg' ? (
         <div className="img-container">
           <p>
             <img src={pic} alt="" />

@@ -1,21 +1,21 @@
-import React, { useState } from "react"
-import { useDispatch } from "react-redux"
-import "./SearchBar.css"
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import './SearchBar.css'
 import {
   fetchSearchResults,
   setSearchTerm,
-} from "../../features/posts/postsSlice"
+} from '../../features/posts/postsSlice'
 
 export default function SearchBar() {
   const dispatch = useDispatch()
-  const [searchTermLocal, setSearchTermLocal] = useState("")
+  const [searchTermLocal, setSearchTermLocal] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!searchTermLocal) return
     dispatch(setSearchTerm(searchTermLocal))
     dispatch(fetchSearchResults(searchTermLocal))
-    setSearchTermLocal("")
+    setSearchTermLocal('')
   }
 
   return (

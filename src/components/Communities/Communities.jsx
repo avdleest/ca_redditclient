@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import React from "react"
-import { useSelector } from "react-redux"
-import Community from "../Community/Community"
-import { selectCommunities } from "../../features/communities/communitiesSlice"
-import "./Communities.css"
+import React from 'react'
+import { useSelector } from 'react-redux'
+import Community from '../Community/Community'
+import { selectCommunities } from '../../features/communities/communitiesSlice'
+import './Communities.css'
 
 export default function Communities() {
   const communities = useSelector(selectCommunities)

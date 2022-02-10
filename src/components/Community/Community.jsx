@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-import axios from "axios"
-import React, { useState, useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { fetchPosts, selectPosts } from "../../features/posts/postsSlice"
-import "./Community.css"
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchPosts, selectPosts } from '../../features/posts/postsSlice'
+import './Community.css'
 
 export default function Community({ subreddit }) {
   const dispatch = useDispatch()
-  const [icon, setIcon] = useState("")
-  const str = "/r/"
+  const [icon, setIcon] = useState('')
+  const str = '/r/'
   const endpoint = str + subreddit
 
   useEffect(() => {
