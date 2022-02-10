@@ -2,7 +2,7 @@
 import React from 'react'
 import './Comment.css'
 
-export default function Comments({ author, body }) {
+export default function Comment({ author, body }) {
   return (
     <div className="comment">
       <h5>{author}</h5>
