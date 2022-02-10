@@ -16,7 +16,7 @@ export default function Communities() {
           <h1>Related Communities</h1>
         </div>
         <div className="community-container">
-          {communities.map((data) => <Community subreddit={data} />)}
+          {communities.map((data) => <Community key={data} subreddit={data} />)}
         </div>
       </div>
     </div>
