@@ -11,6 +11,7 @@ export default function Community({ subreddit }) { // eslint-disable-line react/
   const [icon, setIcon] = useState('')
   const str = '/r/'
   const endpoint = str + subreddit
+  // TODO: This throws an error about updating a component that is unmounted. Needs fixing.
   useEffect(() => {
     axios.get(`https://www.reddit.com/r/${subreddit}/about.json`).then((res) => setIcon(res.data.data.icon_img))
   }, [])

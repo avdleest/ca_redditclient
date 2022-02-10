@@ -1,10 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { fetchPostsAPI } from '../../utils/api'
+import { fetchPostsAPI, fetchSearchResultsAPI } from '../../utils/api'
 
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async (community) => {
     const response = await fetchPostsAPI(community)
+    return response.data.data.children
+  },
+)
+
+export const fetchSearchResults = createAsyncThunk(
+  'posts/fetchSearchResults',
+  async (searchTerm) => {
+    const response = await fetchSearchResultsAPI(searchTerm)
     return response.data.data.children
   },
 )
@@ -44,6 +52,19 @@ const postsSlice = createSlice({
         state.error = false
       })
       .addCase(fetchPosts.rejected, (state) => {
+        state.isLoading = false
+        state.error = true
+      })
+      .addCase(fetchSearchResults.pending, (state) => {
+        state.isLoading = true
+        state.error = false
+      })
+      .addCase(fetchSearchResults.fulfilled, (state, action) => {
+        state.posts = action.payload.map((post) => post.data)
+        state.isLoading = false
+        state.error = false
+      })
+      .addCase(fetchSearchResults.rejected, (state) => {
         state.isLoading = false
         state.error = true
       })
