@@ -20,7 +20,7 @@ export const fetchSearchResults = createAsyncThunk(
 const initialState = {
   posts: [],
   error: false,
-  isLoading: false,
+  isLoading: true,
   searchTerm: '',
   selectedCommunity: 'r/popular',
 }

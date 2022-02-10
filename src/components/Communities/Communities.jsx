@@ -5,8 +5,6 @@ import Community from "../Community/Community"
 import { selectCommunities } from "../../features/communities/communitiesSlice"
 import "./Communities.css"
 
-// TODO: add key property
-
 export default function Communities() {
   const communities = useSelector(selectCommunities)
   return (

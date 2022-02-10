@@ -1,4 +1,3 @@
-/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable react/prop-types */
 import React from "react"
 import { useSelector } from "react-redux"
@@ -6,11 +5,8 @@ import Post from "../Post/Post"
 import { selectSearchTerm } from "../../features/posts/postsSlice"
 import "./PostList.css"
 
-// TODO: add key property
-
 export default function PostList({ posts }) {
   const searchTerm = useSelector(selectSearchTerm)
-  console.log(posts)
   return (
     <div className="postList">
       {searchTerm && (
