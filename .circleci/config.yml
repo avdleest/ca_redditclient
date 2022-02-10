@@ -3,6 +3,9 @@
 version: 2.1
 
 # Define a job to be invoked later in a workflow.
+orbs:
+  github-super-linter: circleci/github-super-linter@1.0.1
+
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   say-hello:
@@ -24,3 +27,6 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+  example-workflow:
+    jobs:
+     - github-super-linter/lint
