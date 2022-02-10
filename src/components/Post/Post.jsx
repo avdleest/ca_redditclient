@@ -1,10 +1,3 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable block-spacing */
-/* eslint-disable camelcase */
-/* eslint-disable max-len */
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/prop-types */
 import React from "react"
 import { useDispatch } from "react-redux"
@@ -24,7 +17,6 @@ export default function Post({
   num_comments,
   comments,
 }) {
-  // eslint-disable-line react/prop-types
   const timeNow = new Date(Date.now()).getHours()
   const dispatch = useDispatch()
   const commentsEndpoint = getCommentsEndpoint(comments)
