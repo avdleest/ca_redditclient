@@ -1,13 +1,22 @@
+:root {
+  --primary: #3ce6b3;
+}
+
 .App {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
 }
 
 .container {
-    width: 100%;
-    margin-top: 50px;
-    height: auto;
-    display: flex;
+  width: 100%;
+  margin-top: 50px;
+  height: auto;
+  display: flex;
+  flex: 1;
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
 }
