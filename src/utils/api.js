@@ -19,3 +19,9 @@ export const getCommentsEndpoint = (comments) => {
   const commentsURL = comments.slice(0, comments.length - 1)
   return `https://www.reddit.com/${commentsURL}.json`
 }
+
+export const fetchSearchResultsAPI = async (searchTerm) => {
+  const uriEnc = encodeURI(searchTerm)
+  const response = await axios.get(`https://www.reddit.com/search.json?q=${uriEnc}`)
+  return response
+}

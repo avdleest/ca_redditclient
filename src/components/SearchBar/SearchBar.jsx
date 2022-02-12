@@ -1,21 +1,39 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import './SearchBar.css'
+import {
+  fetchSearchResults,
+  setSearchTerm,
+} from '../../features/posts/postsSlice'
 
 export default function SearchBar() {
-  const [key, setKey] = useState('')
+  const dispatch = useDispatch()
+  const [searchTermLocal, setSearchTermLocal] = useState('')
 
-  function search(k) {
-    console.log(k)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (!searchTermLocal) return
+    dispatch(setSearchTerm(searchTermLocal))
+    dispatch(fetchSearchResults(searchTermLocal))
+    setSearchTermLocal('')
   }
 
   return (
-    <div className="searchBar">
-      <input type="text" placeholder="Search" onChange={(e) => { setKey(e.target.value) }} />
+    <form className="searchBar" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchTermLocal}
+        onChange={(e) => {
+          setSearchTermLocal(e.target.value)
+        }}
+        aria-label="Search posts"
+      />
       <div className="search-icon" role="search">
-        <button type="submit" onClick={() => search(key)}>
+        <button type="submit" onClick={handleSubmit}>
           <img src="assets/search.png" alt="" />
         </button>
       </div>
-    </div>
+    </form>
   )
 }

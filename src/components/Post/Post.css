@@ -26,6 +26,7 @@
 
 .post .img-container{
     min-height: 0;
+    margin-top: 10px;
     width: 100%;
 }
 
