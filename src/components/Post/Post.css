@@ -26,6 +26,7 @@
 
 .post .img-container{
     min-height: 0;
+    margin-top: 10px;
     width: 100%;
 }
 
@@ -74,8 +75,8 @@
 }
 
 .post-footer .comment-btn-container button{
-    height: 100%;
-    width: 25%;
+    height: 37px;
+    width: 37px;
     outline: none;
     border: none;
     background: white;
@@ -94,8 +95,8 @@
 }
 
 .post-footer .comment-btn-container button img{
-    height: 100%;
-    width: 100%;
+    height: 37px;
+    width: 37px;
 }
 
 .post-footer .comment-btn-container p{

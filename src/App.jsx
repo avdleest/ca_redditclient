@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
 import TopBar from './components/TopBar/TopBar'
@@ -14,6 +14,7 @@ import {
 } from './features/posts/postsSlice'
 import { selectShowComments } from './features/comments/commentsSlice'
 import Loading from './components/Loading/Loading'
+import Menu from './components/Menu/Menu'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -22,6 +23,7 @@ export default function App() {
   const isLoading = useSelector(isLoadingPosts)
   const showComments = useSelector(selectShowComments)
   const hasError = useSelector(hasErrorPosts)
+  const [showMenu, setShowMenu] = useState(false)
 
   useEffect(() => {
     dispatch(fetchPosts(community))
@@ -31,9 +33,12 @@ export default function App() {
     return <span>Error 404</span>
   }
 
+  console.log(showMenu)
+
   return (
     <div className="App">
-      <TopBar />
+      <TopBar setShowMenu={(v) => setShowMenu(v)} showMenu={showMenu}/>
+      {showMenu && <Menu />}
       {showComments ? (
         <Comments />
       ) : (

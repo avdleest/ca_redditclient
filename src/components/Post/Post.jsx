@@ -26,13 +26,11 @@ export default function Post({
       <h3>{title}</h3>
       {pic && pic.slice(pic.length - 3, pic.length) === 'jpg' ? (
         <div className="img-container">
-          <p>
-            <img src={pic} alt="" />
-          </p>
+          <img src={pic} alt="" />
         </div>
       ) : (
         <div className="link-container">
-          {pic ? <a href={pic}>click to view content</a> : null}
+          {pic ? <a href={pic} target="_blank" rel="noopener noreferrer">click to view content</a> : null}
         </div>
       )}
       <p>{text}</p>

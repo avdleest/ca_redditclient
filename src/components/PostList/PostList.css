@@ -10,3 +10,9 @@
     font-size: 1.5em;
     margin-bottom: 0.7em;
 }
+
+@media screen and (max-width: 1200px) {
+    .postList {
+      flex: 1;
+    }
+}

@@ -9,7 +9,7 @@ import {
   setShowComments,
 } from '../../features/comments/commentsSlice'
 import Comment from '../Comment/Comment'
-import Loading from '../Loading/Loading'
+import CommentsLoading from '../CommentsLoading/CommentsLoading'
 import './Comments.css'
 
 export default function Comments() {
@@ -20,7 +20,7 @@ export default function Comments() {
   const commentsdata = useSelector(selectComments)
   if (hasErrorC) return <span>Error 404</span>
   if (!showComments) return null
-  if (isLoadingC) return <Loading />
+  if (isLoadingC) return <CommentsLoading />
   return (
     <div className="comments">
       <button type="button" onClick={() => dispatch(setShowComments(false))}>
