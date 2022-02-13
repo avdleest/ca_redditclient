@@ -9,8 +9,10 @@ import {
   fetchPosts,
   selectPosts,
   selectCommunity,
+  selectShowMenu,
   isLoadingPosts,
   hasErrorPosts,
+  setShowMenu,
 } from './features/posts/postsSlice'
 import { selectShowComments } from './features/comments/commentsSlice'
 import Loading from './components/Loading/Loading'
@@ -23,7 +25,7 @@ export default function App() {
   const isLoading = useSelector(isLoadingPosts)
   const showComments = useSelector(selectShowComments)
   const hasError = useSelector(hasErrorPosts)
-  const [showMenu, setShowMenu] = useState(false)
+  const showMenu = useSelector(selectShowMenu)
 
   useEffect(() => {
     dispatch(fetchPosts(community))
@@ -33,11 +35,9 @@ export default function App() {
     return <span>Error 404</span>
   }
 
-  console.log(showMenu)
-
   return (
     <div className="App">
-      <TopBar setShowMenu={(v) => setShowMenu(v)} showMenu={showMenu}/>
+      <TopBar />
       {showMenu && <Menu />}
       {showComments ? (
         <Comments />

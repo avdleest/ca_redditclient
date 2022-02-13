@@ -2,7 +2,11 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchPosts, selectPosts } from '../../features/posts/postsSlice'
+import {
+  fetchPosts,
+  selectPosts,
+  setShowMenu,
+} from '../../features/posts/postsSlice'
 import './Community.css'
 
 export default function Community({ subreddit }) {
@@ -37,7 +41,7 @@ export default function Community({ subreddit }) {
   }, [])
 
   return (
-    <div className="community">
+    <div className="community" onClick={() => dispatch(setShowMenu(false))}>
       <button type="button" onClick={() => dispatch(fetchPosts(endpoint))}>
         <div className="logo-container">
           {icon ? <img src={icon} alt="" /> : null}

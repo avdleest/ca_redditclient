@@ -23,6 +23,7 @@ const initialState = {
   isLoading: true,
   searchTerm: '',
   selectedCommunity: 'r/popular',
+  showMenu: false
 }
 
 const postsSlice = createSlice({
@@ -39,6 +40,9 @@ const postsSlice = createSlice({
       state.selectedCommunity = action.payload
       state.searchTerm = ''
     },
+    setShowMenu(state, action) {
+      state.showMenu = action.payload
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -78,11 +82,13 @@ const postsSlice = createSlice({
 export const selectPosts = (state) => state.posts.posts
 export const selectCommunity = (state) => state.posts.selectedCommunity
 export const selectSearchTerm = (state) => state.posts.searchTerm
+export const selectShowMenu = (state) => state.posts.showMenu
 export const isLoadingPosts = (state) => state.posts.isLoading
 export const hasErrorPosts = (state) => state.posts.error
 export const {
   setPosts,
   setSearchTerm,
   setSelectedCommunity,
+  setShowMenu
 } = postsSlice.actions
 export default postsSlice.reducer
