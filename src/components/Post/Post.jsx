@@ -30,7 +30,7 @@ export default function Post({
         </div>
       ) : (
         <div className="link-container">
-          {pic ? <a href={pic}>click to view content</a> : null}
+          {pic ? <a href={pic} target="_blank" rel="noopener noreferrer">click to view content</a> : null}
         </div>
       )}
       <p>{text}</p>

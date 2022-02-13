@@ -10,7 +10,6 @@ import {
 } from '../../features/comments/commentsSlice'
 import Comment from '../Comment/Comment'
 import CommentsLoading from '../CommentsLoading/CommentsLoading'
-import Loading from '../Loading/Loading'
 import './Comments.css'
 
 export default function Comments() {
