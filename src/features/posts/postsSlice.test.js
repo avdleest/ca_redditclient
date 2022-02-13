@@ -18,10 +18,9 @@ const initialState = {
 // TODO: test the async stuff. See if you can get 100% test coverage for this file.
 
 describe('features/posts/postSlice', () => {
-  // TODO: Find out why this doesn't work
-  // it('should have initial state', () => {
-  //   expect(uut()).toEqual(initialState)
-  // })
+  it('should have initial state', () => {
+    Reducer(uut).expect({}).toReturnState(initialState)
+  })
   describe('action', () => {
     it('that is not defined in the store should not affect state', () => {
       Reducer(uut).expect({ type: 'NOT_EXISTING', payload: 'whatever' }).toReturnState(initialState)
@@ -38,7 +37,7 @@ describe('features/posts/postSlice', () => {
       const posts = [{ id: 1, name: 'bla' }, { id: 2, name: 'blabla' }]
       const action = { type: setPosts, payload: posts }
       Reducer(uut).withState(existingState).expect(action).toReturnState({ ...initialState, posts })
-    })
+    })vv
 
     it('setSearchTerm should store the actual searchTerm', () => {
       const searchTerm = 'great searchterm'
