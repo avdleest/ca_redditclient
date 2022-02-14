@@ -38,7 +38,7 @@ export default function App() {
   return (
     <div className="App">
       <TopBar />
-      {showMenu && <Menu />}
+      <Menu />
       {showComments ? (
         <Comments />
       ) : (

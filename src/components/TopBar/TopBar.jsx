@@ -27,7 +27,7 @@ export default function TopBar() {
               maxWidth: '27px',
               minHeight: '20px',
               minWidth: '20px',
-              marginRight: '15px',
+              marginRight: '10px',
             }}
             onClick={() => dispatch(setShowMenu(true))}
           />
@@ -39,7 +39,7 @@ export default function TopBar() {
               maxWidth: '27px',
               minHeight: '20px',
               minWidth: '20px',
-              marginRight: '15px',
+              marginRight: '10px',
             }}
             onClick={() => dispatch(setShowMenu(false))}
           />

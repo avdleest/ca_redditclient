@@ -8,6 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: sticky;
+  z-index: 1000;
 }
 
 .logo-container {
@@ -71,7 +73,7 @@
   .logo-container {
     width: 20px;
     height: 20px;
-    margin-left: 10px;
+    margin-right: 85%;
   }
 
   .logo-container img {
