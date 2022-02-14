@@ -31,6 +31,13 @@
     margin-top: 20px;
 } 
 
+.active .menus-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .active .menu-title h1{
     font-size: 20px;
 }
