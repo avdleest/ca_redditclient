@@ -1,5 +1,7 @@
 .menu{
-    position: absolute;
+    right: -600px;
+    position: fixed;
+    transition: all 0.5s linear;
     background: white;
     display: flex;
     flex-direction: column;
@@ -13,6 +15,47 @@
     margin-top: 20px;
 }
 
+.active{
+    position: fixed;
+    right: 20px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.11);
+    width: 300px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+} 
+
+.active .menu-title h1{
+    font-size: 20px;
+}
+
 .menu .menu-title h1{
     font-size: 20px;
+}
+
+@media screen and (max-width: 650px) {
+    .menu {
+        width: 250px;
+    }
+    .active {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .menus-container{
+        margin-right: 120px;
+    }
+    .menu {
+        width: 230px;
+    }
+    .active {
+        width: 230px;
+    }
 }
